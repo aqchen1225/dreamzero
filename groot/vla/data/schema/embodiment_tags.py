@@ -155,6 +155,8 @@ class EmbodimentTag(Enum):
 
     YAM = "yam"
 
+    DREAM_SKILL = "dream_skill"
+
     DREAM = "dream"
     """
     The datasets with DREAM actions.
