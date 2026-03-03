@@ -342,6 +342,81 @@ transform_yam:
     - ${model_specific_transform}
 
 ################################################################################
+# dream_skill (task decomposition policy: skill_type + obj + dst, camA only)
+################################################################################
+
+modality_config_dream_skill:
+  video:
+    _target_: groot.vla.data.dataset.ModalityConfig
+    delta_indices: [0]
+    eval_delta_indices: [0]
+    modality_keys:
+      - video.camA
+  state:
+    _target_: groot.vla.data.dataset.ModalityConfig
+    delta_indices: [-3, -2, -1, 0]
+    modality_keys:
+      - state.prev_skill_type_id
+      - state.prev_obj_id
+      - state.prev_dst_id
+  action:
+    _target_: groot.vla.data.dataset.ModalityConfig
+    delta_indices: [0]
+    modality_keys:
+      - action.skill_type_id
+      - action.obj_id
+      - action.dst_id
+  language:
+    _target_: groot.vla.data.dataset.ModalityConfig
+    delta_indices: [0]
+    modality_keys:
+      - annotation.task
+
+transform_dream_skill:
+  _target_: groot.vla.data.transform.ComposedModalityTransform
+  transforms:
+    # Video transforms
+    - <<: *totensor_cfg
+      apply_to: ${modality_config_dream_skill.video.modality_keys}
+    - <<: *crop_cfg
+      apply_to: ${modality_config_dream_skill.video.modality_keys}
+    - <<: *resize_cfg
+      apply_to: ${modality_config_dream_skill.video.modality_keys}
+    - <<: *color_jitter_cfg
+      apply_to: ${modality_config_dream_skill.video.modality_keys}
+    - <<: *to_numpy_cfg
+      apply_to: ${modality_config_dream_skill.video.modality_keys}
+
+    # State transforms
+    - _target_: groot.vla.data.transform.StateActionToTensor
+      apply_to: ${modality_config_dream_skill.state.modality_keys}
+    - _target_: groot.vla.data.transform.StateActionTransform
+      apply_to: ${modality_config_dream_skill.state.modality_keys}
+      normalization_modes:
+        state.prev_skill_type_id: q99
+        state.prev_obj_id: q99
+        state.prev_dst_id: q99
+
+    # Action transforms
+    - _target_: groot.vla.data.transform.StateActionToTensor
+      apply_to: ${modality_config_dream_skill.action.modality_keys}
+    - _target_: groot.vla.data.transform.StateActionTransform
+      apply_to: ${modality_config_dream_skill.action.modality_keys}
+      normalization_modes:
+        action.skill_type_id: q99
+        action.obj_id: q99
+        action.dst_id: q99
+
+    # ConcatTransform
+    - _target_: groot.vla.data.transform.ConcatTransform
+      video_concat_order: ${modality_config_dream_skill.video.modality_keys}
+      state_concat_order: ${modality_config_dream_skill.state.modality_keys}
+      action_concat_order: ${modality_config_dream_skill.action.modality_keys}
+
+    # Model-specific transform
+    - ${model_specific_transform}
+
+################################################################################
 # Modality Configs
 ################################################################################
 
@@ -349,6 +424,7 @@ modality_configs:
   oxe_droid: ${modality_config_oxe_droid}
   agibot: ${modality_config_agibot}
   yam: ${modality_config_yam}
+  dream_skill: ${modality_config_dream_skill}
 
 ################################################################################
 # Transforms
@@ -358,6 +434,7 @@ transforms:
   oxe_droid: ${transform_oxe_droid}
   agibot: ${transform_agibot}
   yam: ${transform_yam}
+  dream_skill: ${transform_dream_skill}
 
 ################################################################################
 # Metadata Versions
@@ -367,6 +444,7 @@ metadata_versions:
   oxe_droid: '0221'
   agibot: '0221'
   yam: '0221'
+  dream_skill: '0221'
 
 ################################################################################
 # FPS (per embodiment, null means use dataset default)
@@ -374,3 +452,4 @@ metadata_versions:
 
 fps:
   yam: 30
+  dream_skill: 10
