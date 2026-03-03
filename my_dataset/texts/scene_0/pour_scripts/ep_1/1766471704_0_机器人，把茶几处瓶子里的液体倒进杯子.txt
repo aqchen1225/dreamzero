@@ -1,0 +1,4 @@
+Navigate_to(茶几)
+Grasp(瓶子)
+Pour(瓶子,杯子)
+Place(瓶子,茶几)

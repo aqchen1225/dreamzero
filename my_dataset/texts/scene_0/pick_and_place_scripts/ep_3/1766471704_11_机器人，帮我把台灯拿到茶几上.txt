@@ -1,0 +1,6 @@
+Navigate_to(卧室)
+Navigate_to(书桌)
+Grasp(台灯)
+Navigate_to(客厅)
+Navigate_to(茶几)
+Place(台灯,茶几)

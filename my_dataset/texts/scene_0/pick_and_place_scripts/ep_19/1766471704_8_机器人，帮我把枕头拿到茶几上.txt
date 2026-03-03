@@ -1,0 +1,6 @@
+Navigate_to(卧室)
+Navigate_to(床)
+Grasp(枕头)
+Navigate_to(客厅)
+Navigate_to(茶几)
+Place(枕头,茶几)

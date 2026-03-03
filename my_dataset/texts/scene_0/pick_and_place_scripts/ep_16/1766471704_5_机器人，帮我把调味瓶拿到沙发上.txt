@@ -1,0 +1,6 @@
+Navigate_to(厨房)
+Navigate_to(边桌)
+Grasp(调味瓶)
+Navigate_to(客厅)
+Navigate_to(沙发)
+Place(调味瓶,沙发)

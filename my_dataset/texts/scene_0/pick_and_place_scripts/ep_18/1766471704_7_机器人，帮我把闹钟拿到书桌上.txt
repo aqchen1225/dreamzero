@@ -1,0 +1,5 @@
+Navigate_to(卧室)
+Navigate_to(床头柜)
+Grasp(闹钟)
+Navigate_to(书桌)
+Place(闹钟,书桌)

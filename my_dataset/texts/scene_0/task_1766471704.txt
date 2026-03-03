@@ -1,0 +1,169 @@
+{
+    "客厅": {
+        "size": [15, 12],
+        "沙发": {
+            "coordinates": [3, 9],
+            "towards": "北",
+            "object": []
+        },
+        "茶几": {
+            "coordinates": [5, 8],
+            "towards": "北",
+            "object": [
+                {
+                    "name": "杯子",
+                    "coordinates": [5, 7],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "瓶子",
+                    "coordinates": [6, 8],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "杂志",
+                    "coordinates": [4, 7],
+                    "towards": "未指定"
+                }
+            ]
+        },
+        "电视机": {
+            "coordinates": [12, 2],
+            "towards": "南",
+            "object": [],
+            "stick_to_wall": true
+        },
+        "双臂轮式机器人": {
+            "coordinates": [7, 7],
+            "towards": "茶几",
+            "object": []
+        }
+    },
+    "厨房": {
+        "size": [8, 6],
+        "冰箱": {
+            "coordinates": [1, 1],
+            "towards": "东",
+            "object": [
+                {
+                    "name": "牛奶盒",
+                    "coordinates": [1, 1],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "鸡蛋盒",
+                    "coordinates": [1, 2],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "水果盘",
+                    "coordinates": [2, 1],
+                    "towards": "未指定"
+                }
+            ]
+        },
+        "灶台": {
+            "coordinates": [6, 1],
+            "towards": "西",
+            "object": [
+                {
+                    "name": "锅",
+                    "coordinates": [6, 2],
+                    "towards": "未指定"
+                }
+            ]
+        },
+        "边桌": {
+            "coordinates": [3, 4],
+            "towards": "南",
+            "object": [
+                {
+                    "name": "调味瓶",
+                    "coordinates": [3, 3],
+                    "towards": "未指定"
+                }
+            ]
+        }
+    },
+    "卧室": {
+        "size": [11, 10],
+        "床": {
+            "coordinates": [2, 8],
+            "towards": "北",
+            "object": [
+                {
+                    "name": "枕头",
+                    "coordinates": [2, 9],
+                    "towards": "未指定"
+                }
+            ],
+            "stick_to_wall": true
+        },
+        "床头柜": {
+            "coordinates": [1, 8],
+            "towards": "西",
+            "object": [
+                {
+                    "name": "闹钟",
+                    "coordinates": [1, 9],
+                    "towards": "未指定"
+                }
+            ]
+        },
+        "衣柜": {
+            "coordinates": [8, 2],
+            "towards": "西",
+            "object": []
+        },
+        "书桌": {
+            "coordinates": [7, 7],
+            "towards": "东",
+            "object": [
+                {
+                    "name": "笔筒",
+                    "coordinates": [7, 6],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "铅笔",
+                    "coordinates": [8, 7],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "马克笔",
+                    "coordinates": [6, 7],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "台灯",
+                    "coordinates": [7, 8],
+                    "towards": "未指定"
+                }
+            ]
+        }
+    },
+    "洗手间": {
+        "size": [6, 5],
+        "洗手池": {
+            "coordinates": [1, 2],
+            "towards": "南",
+            "object": [
+                {
+                    "name": "肥皂",
+                    "coordinates": [1, 1],
+                    "towards": "未指定"
+                },
+                {
+                    "name": "刷子",
+                    "coordinates": [2, 2],
+                    "towards": "未指定"
+                }
+            ]
+        },
+        "马桶": {
+            "coordinates": [4, 2],
+            "towards": "西",
+            "object": []
+        }
+    }
+}

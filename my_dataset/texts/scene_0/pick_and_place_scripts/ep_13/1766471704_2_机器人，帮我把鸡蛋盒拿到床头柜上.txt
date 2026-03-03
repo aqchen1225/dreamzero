@@ -1,0 +1,6 @@
+Navigate_to(厨房)
+Navigate_to(冰箱)
+Grasp(鸡蛋盒)
+Navigate_to(卧室)
+Navigate_to(床头柜)
+Place(鸡蛋盒,床头柜)

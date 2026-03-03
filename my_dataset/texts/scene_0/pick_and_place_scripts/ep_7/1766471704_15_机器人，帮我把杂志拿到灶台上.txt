@@ -1,0 +1,5 @@
+Navigate_to(茶几)
+Grasp(杂志)
+Navigate_to(厨房)
+Navigate_to(灶台)
+Place(杂志,灶台)

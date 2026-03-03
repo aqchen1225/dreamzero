@@ -1,0 +1,6 @@
+Navigate_to(洗手间)
+Navigate_to(洗手池)
+Grasp(肥皂)
+Navigate_to(卧室)
+Navigate_to(书桌)
+Place(肥皂,书桌)

@@ -1,0 +1,4 @@
+Navigate_to(卧室)
+Navigate_to(书桌)
+Grasp(马克笔)
+Insert(马克笔,笔筒)

@@ -1,0 +1,6 @@
+Navigate_to(厨房)
+Navigate_to(灶台)
+Grasp(锅)
+Navigate_to(客厅)
+Navigate_to(沙发)
+Place(锅,沙发)

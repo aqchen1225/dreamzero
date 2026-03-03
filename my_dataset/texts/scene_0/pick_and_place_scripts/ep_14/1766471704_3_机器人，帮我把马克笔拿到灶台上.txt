@@ -1,0 +1,6 @@
+Navigate_to(卧室)
+Navigate_to(书桌)
+Grasp(马克笔)
+Navigate_to(厨房)
+Navigate_to(灶台)
+Place(马克笔,灶台)
