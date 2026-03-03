@@ -111,7 +111,37 @@ def get_scene_text(scene_text_dir: Path, scene_id: int) -> str:
     scene_files = sorted(scene_dir.glob("task_*.txt"))
     if not scene_files:
         return ""
-    return scene_files[0].read_text(encoding="utf-8").strip()
+    # return scene_files[0].read_text(encoding="utf-8").strip()
+    # 读取原始JSON
+    raw_text = scene_files[0].read_text(encoding="utf-8").strip()
+    scene_data = json.loads(raw_text)
+    
+    # 构建简化结构：只保留房间、家具、物体名字
+    simplified = {}
+    
+    for room_name, room_data in scene_data.items():
+        simplified[room_name] = {}
+        
+        for key, value in room_data.items():
+            # 跳过size字段（房间尺寸信息）
+            if key == "size":
+                continue
+            
+            # 处理家具（具有object字段的字典）
+            if isinstance(value, dict) and "object" in value:
+                furniture_name = key
+                objects_list = value.get("object", [])
+                
+                # 提取物体名字列表
+                object_names = []
+                for obj in objects_list:
+                    if isinstance(obj, dict) and "name" in obj:
+                        object_names.append(obj["name"])
+                
+                simplified[room_name][furniture_name] = object_names
+    
+    # 返回JSON字符串
+    return json.dumps(simplified, ensure_ascii=False, indent=2)
 
 
 def get_instruction_from_filename(path: Path) -> str:
